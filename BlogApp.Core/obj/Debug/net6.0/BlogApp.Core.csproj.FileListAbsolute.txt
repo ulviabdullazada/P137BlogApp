@@ -1,0 +1,12 @@
+C:\Users\Ülvi\Desktop\BlogApp\BlogApp.Core\bin\Debug\net6.0\BlogApp.Core.deps.json
+C:\Users\Ülvi\Desktop\BlogApp\BlogApp.Core\bin\Debug\net6.0\BlogApp.Core.dll
+C:\Users\Ülvi\Desktop\BlogApp\BlogApp.Core\bin\Debug\net6.0\BlogApp.Core.pdb
+C:\Users\Ülvi\Desktop\BlogApp\BlogApp.Core\obj\Debug\net6.0\BlogApp.Core.csproj.AssemblyReference.cache
+C:\Users\Ülvi\Desktop\BlogApp\BlogApp.Core\obj\Debug\net6.0\BlogApp.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ülvi\Desktop\BlogApp\BlogApp.Core\obj\Debug\net6.0\BlogApp.Core.AssemblyInfoInputs.cache
+C:\Users\Ülvi\Desktop\BlogApp\BlogApp.Core\obj\Debug\net6.0\BlogApp.Core.AssemblyInfo.cs
+C:\Users\Ülvi\Desktop\BlogApp\BlogApp.Core\obj\Debug\net6.0\BlogApp.Core.csproj.CoreCompileInputs.cache
+C:\Users\Ülvi\Desktop\BlogApp\BlogApp.Core\obj\Debug\net6.0\BlogApp.Core.dll
+C:\Users\Ülvi\Desktop\BlogApp\BlogApp.Core\obj\Debug\net6.0\refint\BlogApp.Core.dll
+C:\Users\Ülvi\Desktop\BlogApp\BlogApp.Core\obj\Debug\net6.0\BlogApp.Core.pdb
+C:\Users\Ülvi\Desktop\BlogApp\BlogApp.Core\obj\Debug\net6.0\ref\BlogApp.Core.dll
