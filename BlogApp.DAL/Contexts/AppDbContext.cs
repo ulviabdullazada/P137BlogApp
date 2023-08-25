@@ -1,11 +1,11 @@
 ﻿using BlogApp.Core.Entities;
-using BlogApp.DAL.Configurations;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace BlogApp.DAL.Contexts;
 
-public class AppDbContext : DbContext
+public class AppDbContext : IdentityDbContext<AppUser>
 {
     public AppDbContext(DbContextOptions options) : base(options)
     {
