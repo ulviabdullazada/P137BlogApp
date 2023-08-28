@@ -83,3 +83,7 @@ C:\Users\Ülvi\Desktop\BlogApp\BlogApp.API\bin\Debug\net6.0\Microsoft.AspNetCore
 C:\Users\Ülvi\Desktop\BlogApp\BlogApp.API\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Ülvi\Desktop\BlogApp\BlogApp.API\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Ülvi\Desktop\BlogApp\BlogApp.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Ülvi\Desktop\BlogApp\BlogApp.API\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Ülvi\Desktop\BlogApp\BlogApp.API\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Ülvi\Desktop\BlogApp\BlogApp.API\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Ülvi\Desktop\BlogApp\BlogApp.API\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

@@ -3,5 +3,5 @@
 public class BaseEntity
 {
     public int Id { get; set; }
-    public bool IsDeleted { get; set; }
+    public virtual bool IsDeleted { get; set; }
 }

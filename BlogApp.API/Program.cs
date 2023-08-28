@@ -2,9 +2,8 @@ using BlogApp.Business;
 using BlogApp.Business.Profiles;
 using BlogApp.Business.Services.Implements;
 using BlogApp.Core.Entities;
+using BlogApp.DAL;
 using BlogApp.DAL.Contexts;
-using BlogApp.DAL.Repositories.Implements;
-using BlogApp.DAL.Repositories.Interfaces;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -23,7 +22,9 @@ namespace BlogApp.API
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers().AddNewtonsoftJson(options =>
+                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                );
             builder.Services.AddFluentValidation(opt =>
             {
                 opt.RegisterValidatorsFromAssemblyContaining<CategoryService>();
@@ -69,8 +70,7 @@ namespace BlogApp.API
 
             builder.Services.AddAutoMapper(typeof(CategoryMappingProfile).Assembly);
 
-            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-
+            builder.Services.AddRepositories();
             builder.Services.AddServices();
 
             builder.Services.AddAuthentication(opt =>

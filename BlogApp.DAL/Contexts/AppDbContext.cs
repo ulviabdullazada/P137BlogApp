@@ -11,6 +11,8 @@ public class AppDbContext : IdentityDbContext<AppUser>
     {
     }
     public DbSet<Category> Categories { get; set; }
+    public DbSet<Blog> Blogs { get; set; }
+    public DbSet<BlogCategory> BlogCategories { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         //NICAT, EYNI SEYDI 
