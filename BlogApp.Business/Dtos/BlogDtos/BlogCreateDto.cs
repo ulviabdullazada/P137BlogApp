@@ -36,14 +36,8 @@ public class BlogCreateDtoValidator:AbstractValidator<BlogCreateDto>
 
         foreach (var id in ids)
         {
-            if (!encounteredIds.Contains(id))
-            {
-                encounteredIds.Add(id);
-            }
-            else
-            {
-                return false;
-            }
+            if (encounteredIds.Contains(id)) return false;
+            encounteredIds.Add(id);
         }
 
         return true;

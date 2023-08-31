@@ -12,6 +12,7 @@ public static class ServiceRegistration
     {
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<ICategoryService, CategoryService>();
+        services.AddScoped<ICommentService, CommentService>();
         services.AddScoped<IBlogService, BlogService>();
         services.AddScoped<ITokenService, TokenService>();
         services.AddHttpContextAccessor();

@@ -80,7 +80,7 @@ public class CategoryService : ICategoryService
     {
         if (id <= 0) throw new NegativeIdException();
         var entity = await _repo.FindByIdAsync(id);
-        if (entity == null) throw new CategoryNotFoundException();
+        if (entity == null) throw new NotFoundException<Category>();
         return entity;
     }
 }

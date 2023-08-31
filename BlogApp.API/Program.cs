@@ -1,3 +1,4 @@
+using BlogApp.API.Helpers;
 using BlogApp.Business;
 using BlogApp.Business.Profiles;
 using BlogApp.Business.Services.Implements;
@@ -6,11 +7,13 @@ using BlogApp.DAL;
 using BlogApp.DAL.Contexts;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BlogApp.API
 {
@@ -25,6 +28,13 @@ namespace BlogApp.API
             builder.Services.AddControllers().AddNewtonsoftJson(options =>
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
                 );
+            builder.Services.AddCors(opt =>
+            {
+                opt.AddDefaultPolicy(pol =>
+                {
+                    pol.WithOrigins("http://127.0.0.1:5500/").AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                });
+            });
             builder.Services.AddFluentValidation(opt =>
             {
                 opt.RegisterValidatorsFromAssemblyContaining<CategoryService>();
@@ -100,15 +110,17 @@ namespace BlogApp.API
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwaggerUI(c =>
+                {
+                    c.ConfigObject.AdditionalItems.Add("persistAuthorization", "true");
+                });
             }
 
             app.UseHttpsRedirection();
-
+            app.UseCors();
             app.UseAuthentication();
             app.UseAuthorization();
-
-
+            //app.UseCustomExceptionHandler();
             app.MapControllers();
 
             app.Run();

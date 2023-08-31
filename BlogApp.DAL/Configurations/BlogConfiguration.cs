@@ -18,7 +18,7 @@ public class BlogConfiguration : IEntityTypeConfiguration<Blog>
         builder.Property(b=>b.ViewerCount)
             .HasDefaultValue(0);
         builder.Property(b => b.CreatedTime)
-            .HasDefaultValue(DateTime.UtcNow);
+            .HasDefaultValueSql("getutcdate()");
         builder.HasOne(b => b.AppUser)
             .WithMany(u => u.Blogs)
             .HasForeignKey(b => b.AppUserId);

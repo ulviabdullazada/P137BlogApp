@@ -10,5 +10,7 @@ public static class ServiceRegistration
     {
         services.AddScoped<ICategoryRepository, CategoryRepository>();
         services.AddScoped<IBlogRepository, BlogRepository>();
+        services.AddScoped<IBlogLikeRepository, BlogLikeRepository>();
+        services.AddScoped<ICommentRepository, CommentRepository>();
     }
 }

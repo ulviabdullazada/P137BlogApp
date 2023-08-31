@@ -13,6 +13,8 @@ public class AppDbContext : IdentityDbContext<AppUser>
     public DbSet<Category> Categories { get; set; }
     public DbSet<Blog> Blogs { get; set; }
     public DbSet<BlogCategory> BlogCategories { get; set; }
+    public DbSet<Comment> Comments { get; set; }
+    public DbSet<BlogLike> BlogLikes { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         //NICAT, EYNI SEYDI 

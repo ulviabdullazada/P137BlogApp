@@ -9,7 +9,6 @@ namespace BlogApp.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class CategoriesController : ControllerBase
     {
         readonly ICategoryService _service;
@@ -26,35 +25,23 @@ namespace BlogApp.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            try
-            {
-                return Ok(await _service.GetByIdAsync(id));
-            }
-            catch (NegativeIdException ex)
-            {
-                return BadRequest(new { Message = ex.Message });
-            }
-            catch (CategoryNotFoundException ex)
-            {
-                return NotFound(new { Message = ex.Message });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
-            }
+            return Ok(await _service.GetByIdAsync(id));
         }
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Post([FromForm]CategoryCreateDto dto)
         {
             await _service.CreateAsync(dto);
             return NoContent();
         }
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromForm]CategoryUpdateDto dto)
         {
             await _service.UpdateAsync(id, dto);
             return NoContent();
         }
+            [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
