@@ -1,5 +1,6 @@
 using BlogApp.API.Helpers;
 using BlogApp.Business;
+using BlogApp.Business.Constants;
 using BlogApp.Business.Profiles;
 using BlogApp.Business.Services.Implements;
 using BlogApp.Core.Entities;
@@ -103,7 +104,6 @@ namespace BlogApp.API
                 };
             });
             builder.Services.AddAuthorization();
-
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -122,7 +122,7 @@ namespace BlogApp.API
             app.UseAuthorization();
             //app.UseCustomExceptionHandler();
             app.MapControllers();
-
+            RootConstants.Root = builder.Environment.WebRootPath;
             app.Run();
         }
     }

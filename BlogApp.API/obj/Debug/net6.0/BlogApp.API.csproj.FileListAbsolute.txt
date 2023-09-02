@@ -87,3 +87,4 @@ C:\Users\Ülvi\Desktop\BlogApp\BlogApp.API\bin\Debug\net6.0\Microsoft.AspNetCore
 C:\Users\Ülvi\Desktop\BlogApp\BlogApp.API\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Ülvi\Desktop\BlogApp\BlogApp.API\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\Ülvi\Desktop\BlogApp\BlogApp.API\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\Ülvi\Desktop\BlogApp\BlogApp.API\bin\Debug\net6.0\BlogApp.API.staticwebassets.runtime.json

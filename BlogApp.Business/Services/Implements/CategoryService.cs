@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
 using BlogApp.Business.Dtos.CategoryDtos;
-using BlogApp.Business.Exceptions.Category;
 using BlogApp.Business.Exceptions.Common;
 using BlogApp.Business.Services.Interfaces;
 using BlogApp.Core.Entities;
 using BlogApp.DAL.Repositories.Interfaces;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Hosting;
 
 namespace BlogApp.Business.Services.Implements;
 
@@ -13,11 +12,12 @@ public class CategoryService : ICategoryService
 {
     readonly ICategoryRepository _repo;
     readonly IMapper _mapper;
-
-    public CategoryService(ICategoryRepository repo, IMapper mapper)
+    readonly IWebHostEnvironment _env;
+    public CategoryService(ICategoryRepository repo, IMapper mapper, IWebHostEnvironment env)
     {
         _repo = repo;
         _mapper = mapper;
+        _env = env;
     }
 
     public async Task CreateAsync(CategoryCreateDto dto)
@@ -82,5 +82,9 @@ public class CategoryService : ICategoryService
         var entity = await _repo.FindByIdAsync(id);
         if (entity == null) throw new NotFoundException<Category>();
         return entity;
+    }
+    public string GetRootPath()
+    {
+        return _env.WebRootPath;
     }
 }

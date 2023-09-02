@@ -1,6 +1,7 @@
 ﻿using BlogApp.Business.Dtos.BlogDtos;
 using BlogApp.Business.Dtos.CommentDtos;
 using BlogApp.Business.Services.Interfaces;
+using BlogApp.Core.Entities;
 using BlogApp.Core.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -72,5 +73,25 @@ namespace BlogApp.API.Controllers
             await _blogService.RemoveReactAsync(id);
             return StatusCode(StatusCodes.Status202Accepted);
         }
+        //[HttpGet("props")]
+        //public IActionResult GetProp()
+        //{
+        //    List<string> createProps = new List<string>();
+        //    foreach (var item in typeof(BlogCreateDto).GetProperties())
+        //    {
+        //        createProps.Add(item.Name);
+        //    }
+        //    List<string> blogProps = new List<string>();
+        //    foreach (var item in typeof(Blog).GetProperties())
+        //    {
+        //        blogProps.Add(item.Name);
+        //    }
+
+        //    return Ok(new
+        //    {
+        //        blog = blogProps,
+        //        dto = createProps
+        //    });
+        //}
     }
 }
