@@ -2,6 +2,7 @@
 using BlogApp.Business.Dtos.CategoryDtos;
 using BlogApp.Business.Exceptions.Category;
 using BlogApp.Business.Exceptions.Common;
+using BlogApp.Business.ExternalServices.Interfaces;
 using BlogApp.Business.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +15,12 @@ namespace BlogApp.API.Controllers
     public class CategoriesController : ControllerBase
     {
         readonly ICategoryService _service;
+        readonly ITokenService _token;
 
-        public CategoriesController(ICategoryService service)
+        public CategoriesController(ICategoryService service, ITokenService token)
         {
             _service = service;
+            _token = token;
         }
         [AllowAnonymous]
         [HttpGet]
@@ -54,6 +57,12 @@ namespace BlogApp.API.Controllers
         public IActionResult GetPath()
         {
             return Ok(RootConstants.Root);
+        }
+        [AllowAnonymous]
+        [HttpGet("[action]")]
+        public IActionResult RefrechToken()
+        {
+            return Ok(_token.CreateRefreshToken());
         }
     }
 }

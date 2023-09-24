@@ -6,6 +6,7 @@ using BlogApp.Business.Exceptions.UserExceptios;
 using BlogApp.Business.ExternalServices.Interfaces;
 using BlogApp.Business.Services.Interfaces;
 using BlogApp.Core.Entities;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -69,6 +70,15 @@ public class UserService : IUserService
         if (user == null) throw new LoginFailedException("Username or password is wrong");
         var result =  await _userManager.CheckPasswordAsync(user, dto.Password);
         if (!result) throw new LoginFailedException("Username or password is wrong");
+        return _tokenService.CreateToken(user);
+    }
+
+    public async Task<TokenResponseDto> LoginWithRefreshTokenAsync(string token)
+    {
+        if (string.IsNullOrEmpty(token)) throw new NegativeIdException();
+        var user = await _userManager.Users.SingleOrDefaultAsync(x => x.RefreshToken == token);
+        if (user == null) throw new NotFoundException<AppUser>();
+        if (user.RefreshTokenExpiresDate < DateTime.UtcNow) throw new Exception();
         return _tokenService.CreateToken(user);
     }
 

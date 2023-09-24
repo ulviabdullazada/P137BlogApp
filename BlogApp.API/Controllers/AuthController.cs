@@ -25,5 +25,10 @@ namespace BlogApp.API.Controllers
         {
             return Ok(await _userService.LoginAsync(dto));
         }
+        [HttpPost("[action]")]
+        public async Task<IActionResult> LoginWithRefreshToken(string refreshToken)
+        {
+            return Ok(await _userService.LoginWithRefreshTokenAsync(refreshToken));
+        }
     }
 }

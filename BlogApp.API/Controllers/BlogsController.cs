@@ -33,17 +33,10 @@ namespace BlogApp.API.Controllers
         }
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]BlogCreateDto dto)
+        public async Task<IActionResult> Post([FromForm]BlogCreateDto dto)
         {
-            try
-            {
-                await _blogService.CreateAsync(dto);
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            await _blogService.CreateAsync(dto);
+            return Ok();
         }
         [Authorize]
         [HttpDelete("{id}")]

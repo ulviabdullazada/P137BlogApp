@@ -120,7 +120,7 @@ namespace BlogApp.API
             app.UseCors();
             app.UseAuthentication();
             app.UseAuthorization();
-            //app.UseCustomExceptionHandler();
+            app.UseCustomExceptionHandler();
             app.MapControllers();
             RootConstants.Root = builder.Environment.WebRootPath;
             app.Run();

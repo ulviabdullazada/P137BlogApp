@@ -7,6 +7,7 @@ public interface IUserService
 {
     Task RegisterAsync(RegisterDto dto);
     Task<TokenResponseDto> LoginAsync(LoginDto dto);
+    Task<TokenResponseDto> LoginWithRefreshTokenAsync(string token);
     Task<ICollection<UserWithRoles>> GetAllAsync();
     Task AddRole(string roleName, string userName);
     Task RemoveRole(string roleName, string userName);
